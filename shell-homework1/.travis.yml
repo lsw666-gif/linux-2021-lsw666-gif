@@ -1,0 +1,41 @@
+language: bash
+
+before_install:
+        - sudo apt-get update
+        - sudo apt-get install -y shellcheck
+        - sudo apt-get install imagemagick
+        - sudo apt-get install p7zip-full
+        - sudo apt-get install ghostscript
+        - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
+        - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/web_log.tsv.7z"
+        - 7z x -ot web_log.tsv.7z
+        -mv t/web_log.tsv web_log.tsv
+        - ls -l
+scirpt:
+        - cd demo 
+        - echo "test 1:"
+        - bash test1.sh -h
+        - bash test1.sh -q 50%
+        - bash test1.sh -r 50%
+        - bash test1.sh -m 10 lsw
+        - bash test1.sh -p demo
+        - bash test1.sh -s demo
+        - bash test1.sh -t
+        - echo "test 2:"
+        - bash test2.sh -r
+        - bash test2.sh -p
+        - bash test2.sh -m
+        - bash test2.sh -y
+        - bash test2.sh -h
+        - echo "test 3:"
+        - bash test3.sh -o
+        - bash test3.sh -i
+        - bash test3.sh -v
+        - bash test3.sh -p
+        - bash test3.sh -c
+        - bash test3.sh -u /history/skylab/skylab-small.gif
+        - bash test3.sh -h
+
+notifications:
+  email:
+    on_success: never
