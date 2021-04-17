@@ -1,7 +1,7 @@
 language: bash
 
 before_install:
-        - cd shell-homework
+        - cd shell-homework1
         - sudo apt-get update
         - sudo apt-get install -y shellcheck
         - sudo apt-get install imagemagick
