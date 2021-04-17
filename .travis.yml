@@ -1,6 +1,7 @@
 language: bash
 
 before_install:
+        - cd shell-homework
         - sudo apt-get update
         - sudo apt-get install -y shellcheck
         - sudo apt-get install imagemagick
@@ -9,13 +10,11 @@ before_install:
         - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
         - wget "https://c4pr1c3.github.io/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
         - 7z x -ot web_log.tsv.7z
-        - ls -l
-scirpt:
-        - cd demo 
+scirpt:    
         - echo "test 1:"
         - bash test1.sh -h
-        - bash test1.sh -q 50%
-        - bash test1.sh -r 50%
+        - bash test1.sh -q 50
+        - bash test1.sh -r 50
         - bash test1.sh -m 10 lsw
         - bash test1.sh -p demo
         - bash test1.sh -s demo

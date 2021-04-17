@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 function help {
-    echo "doc"
     echo "-o       Count the TOP 100 of the source hosts and the total number of appearances respectively."
     echo "-i       Count the TOP 100 IPs of the source host and the total number of occurrences respectively"
     echo "-v       Count the most frequently visited URLs TOP 100"

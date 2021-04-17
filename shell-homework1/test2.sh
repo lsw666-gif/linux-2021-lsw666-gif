@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 function help {
 
-    echo "-r                 Count the number and percentage of players in different age ranges (under 20 years of age, 20-30 years of age, over 30 years of age)"
-    echo "-p                 Count the number and percentage of players in different field positions"
+    echo "-r                 Count the number and percentage of worldcupplayerinfo in different age ranges (under 20 years of age, 20-30 years of age, over 30 years of age)"
+    echo "-p                 Count the number and percentage of worldcupplayerinfo in different field positions"
     echo "-m                 Who is the player with the longest name? Who is the player with the shortest name? "
     echo "-y                 Who is the oldest player? Who is the youngest player? "
     echo "-h                 show this Help Document"
@@ -24,7 +24,7 @@ function comRange {
         printf("under 20 years of age: %d %f%%\n",young,young*100.0/total);
         printf("20-30 years of age: %d %f%%\n",middle,middle*100.0/total);
         printf("over 30 years of age: %d %f%%\n",old,old*100.0/total);
-    }' players.tsv
+    }' worldcupplayerinfo.tsv
 }
 
 function comPercent {
@@ -40,14 +40,14 @@ function comPercent {
         printf("Defender: %d %f%%\n",Defender,Defender*100.0/total);
         printf("Midfielder: %d %f%%\n",Midfielder,Midfielder*100.0/total);
         printf("Forward: %d %f\n%%",Forward,Forward*100.0/total);
-    }' players.tsv
+    }' worldcupplayerinfo.tsv
 }
 # 类似图的思想，由对应的名字指向对应的长度
 function mostName {
     awk -F "\t" 'BEGIN{
         short=10000;long=0} $1!="Group"{
-        l=length($6);
-        name[$6]=l;
+        l=length($9);
+        name[$9]=l;
         if(l>long) long = l;
         if(l<short) short=l;
     }END{
@@ -55,7 +55,7 @@ function mostName {
                 if(name[i]==long) printf("The longest name is %s\n", i);
                 if(name[i]==short) printf("The shortest name is %s\n", i);               
     }
-    }' players.tsv
+    }' worldcupplayerinfo.tsv
 }
 
 function mostYear {
@@ -69,7 +69,7 @@ function mostYear {
                 if(name[i]==long) printf("The oldest man is %s,his old is %d\n", i ,name[i]);
                 if(name[i]==short) printf("The youngest man is %s,his old is %d\n",i ,name[i]);               
     }
-    }' players.tsv
+    }' worldcupplayerinfo.tsv
 }
 
 
